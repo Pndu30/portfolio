@@ -140,7 +140,8 @@ const pageUrl = Astro.url?.href ?? undefined;
   })} />
 )}
 
-<script is:inline>
+<script>
+  // @ts-nocheck: the template's original untyped TOC script, now bundled so it's covered by the CSP
   (() => {
     const HEADER_OFFSET = (() => {
       const nav = document.querySelector('nav');

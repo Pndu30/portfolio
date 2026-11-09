@@ -1,5 +1,7 @@
 // @ts-check
 import {defineConfig} from 'astro/config'
+import {createHash} from 'node:crypto'
+import {themeScript} from './src/lib/theme-script.mjs'
 import react from '@astrojs/react'
 import tailwindcss from '@tailwindcss/vite'
 import {unified} from '@astrojs/markdown-remark'
@@ -71,6 +73,30 @@ const processor = unified({
 })
 
 export default defineConfig({
+    // Content-Security-Policy: Astro hashes every inline script/style it renders and
+    // emits the policy as a <meta> tag, so only this site's own code can run.
+    // Add a domain here if you embed something new (e.g. YouTube -> frame-src).
+    security: {
+        csp: {
+            directives: [
+                "default-src 'self'",
+                "img-src 'self' data: https://drive.google.com https://*.googleusercontent.com",
+                "frame-src https://drive.google.com",
+                "font-src 'self' data: https://fonts.gstatic.com",
+                "media-src 'self'",
+                "connect-src 'self'",
+                "base-uri 'self'",
+                "form-action 'self'",
+                "object-src 'none'",
+            ],
+            scriptDirective: {
+                hashes: [`sha256-${createHash('sha256').update(themeScript).digest('base64')}`],
+            },
+            styleDirective: {
+                resources: ["'self'", "https://fonts.googleapis.com"],
+            },
+        },
+    },
     integrations: [react()],
     vite: {
         plugins: [tailwindcss()],

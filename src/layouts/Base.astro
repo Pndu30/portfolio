@@ -4,6 +4,7 @@ import "katex/dist/katex.min.css";
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import { info } from '../lib/info.ts';
+import { themeScript } from '../lib/theme-script.mjs';
 
 interface BaseProps { title?: string; description?: string; ogImage?: string }
 const { title: pageTitle, description = info.site.description, ogImage } = Astro.props as BaseProps;
@@ -31,13 +32,7 @@ const resolvedOgImage = ogImage ?? (info.site.ogImage || undefined);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
           rel="stylesheet"/>
-    <script is:inline>
-      (() => {
-        const stored = localStorage.getItem('theme');
-        const dark = stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
-        document.documentElement.classList.toggle('dark', dark);
-      })();
-    </script>
+    <script is:inline set:html={themeScript}></script>
 
     <meta property="og:type" content="website"/>
     <meta property="og:site_name" content={siteName}/>

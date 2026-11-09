@@ -16,6 +16,9 @@ media:
   - type: image
     src: /media/warman/robot-front.jpg
     caption: Collector box on its wooden arms; mecanum wheels with added rubber tread
+  - type: video
+    drive: https://drive.google.com/file/d/1LqAgmg4a-VajDZBBiTzx_bgmixQgSKAK/view?usp=sharing
+    caption: The video of our robot working
 ---
 
 ## Overview
@@ -32,9 +35,6 @@ I was one of five team members and worked mainly on the **electrical system
 and the Arduino code**.
 
 ## The robot
-
-The team's guiding principle was *simplicity first*. After abandoning an early
-claw-and-ramp concept, the final design had two parts:
 
 - **Body.** Carries the Arduino, the LiPo battery, four motor-driven mecanum
   wheels and the arm motors.
