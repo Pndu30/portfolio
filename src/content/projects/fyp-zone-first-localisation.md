@@ -21,7 +21,10 @@ media:
     caption: "Operator dashboard during a two-container run: zone, per-container state, position ± 1σ, and the live camera view"
   - type: image
     src: /media/fyp/anchor-layout.jpg
-    caption: UWB anchor layout and camera view used for the static tests
+    caption: UWB anchor layout and camera view used for the static tests 
+  - type: video
+    drive: https://drive.google.com/file/d/1GZMB5SkQQj9aW4Jcq8oRqkUr0QqUiUuK/view?usp=sharing
+    caption: Video of the working system
 ---
 
 ## Overview
