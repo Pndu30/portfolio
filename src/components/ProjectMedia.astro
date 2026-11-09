@@ -1,0 +1,80 @@
+---
+import { existsSync } from 'node:fs';
+import { drivePreviewUrl, driveImageUrl, driveViewUrl } from '../lib/drive';
+
+interface Item {
+  type: 'image' | 'video';
+  drive?: string; // already normalised to a file ID by the content schema
+  src?: string;   // path inside public/, e.g. /media/warman/run.mp4
+  caption?: string;
+}
+interface Props {
+  items: Item[];
+  title: string;
+}
+
+const { items, title } = Astro.props;
+
+// Fail the build on a missing local file instead of shipping a broken embed.
+for (const m of items) {
+  if (m.src && !existsSync(`public${decodeURI(m.src)}`)) {
+    throw new Error(`"${title}": media file public${m.src} not found.`);
+  }
+}
+
+const videos = items.filter((m) => m.type === 'video');
+const images = items.filter((m) => m.type === 'image');
+const imgSrc = (m: Item) => (m.drive ? driveImageUrl(m.drive) : m.src!);
+const imgHref = (m: Item) => (m.drive ? driveViewUrl(m.drive) : m.src!);
+---
+
+{items.length > 0 && (
+  <section aria-label="Project media" class="mt-8 space-y-4">
+    {videos.map((v) => (
+      <figure>
+        <div class="aspect-video w-full overflow-hidden rounded-lg border border-border bg-card">
+          {v.drive ? (
+            <iframe
+              src={drivePreviewUrl(v.drive)}
+              title={v.caption ?? `${title} video`}
+              class="h-full w-full"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
+          ) : (
+            <video
+              src={v.src}
+              controls
+              playsinline
+              preload="metadata"
+              class="h-full w-full bg-black object-contain"
+              aria-label={v.caption ?? `${title} video`}
+            ></video>
+          )}
+        </div>
+        {v.caption && <figcaption class="mt-2 text-xs text-muted-foreground">{v.caption}</figcaption>}
+      </figure>
+    ))}
+
+    {images.length > 0 && (
+      <div class:list={['grid gap-4', images.length > 1 && 'sm:grid-cols-2']}>
+        {images.map((img) => (
+          <figure>
+            <a href={imgHref(img)} target="_blank" rel="noopener noreferrer" class="block">
+              <img
+                src={imgSrc(img)}
+                alt={img.caption ?? `${title} photo`}
+                loading="lazy"
+                decoding="async"
+                referrerpolicy="no-referrer"
+                class="w-full rounded-lg border border-border bg-card object-cover transition-opacity hover:opacity-90"
+              />
+            </a>
+            {img.caption && <figcaption class="mt-2 text-xs text-muted-foreground">{img.caption}</figcaption>}
+          </figure>
+        ))}
+      </div>
+    )}
+  </section>
+)}

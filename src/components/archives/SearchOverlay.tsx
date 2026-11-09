@@ -108,7 +108,7 @@ export default function SearchOverlay({
     <div
       role="dialog"
       aria-modal="true"
-      aria-label="Search articles"
+      aria-label="Search projects"
       className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto bg-black/40 px-4 pb-10 pt-[14vh] backdrop-blur-sm dark:bg-black/60"
       onClick={(e) => {
         if (e.target === e.currentTarget) onClose()
@@ -141,8 +141,8 @@ export default function SearchOverlay({
               setQuery(next)
               onQueryChange?.(next)
             }}
-            placeholder="Search articles..."
-            aria-label="Search articles"
+            placeholder="Search projects..."
+            aria-label="Search projects"
             className="w-full bg-transparent py-3.5 text-sm text-foreground outline-none placeholder:text-muted-foreground/70"
           />
           <Kbd>esc</Kbd>
@@ -151,7 +151,7 @@ export default function SearchOverlay({
         <div ref={listRef} className="max-h-[46vh] overflow-y-auto py-1.5">
           {results.length === 0 ? (
             <div className="px-4 py-12 text-center text-sm text-muted-foreground" aria-live="polite">
-              No matching articles found{query.trim() ? ` for "${query.trim()}"` : ''}.
+              No matching projects found{query.trim() ? ` for "${query.trim()}"` : ''}.
             </div>
           ) : (
             results.map((post, idx) => {
@@ -159,7 +159,7 @@ export default function SearchOverlay({
               return (
                 <a
                   key={post.slug}
-                  href={`/archives/${post.slug}`}
+                  href={`/projects/${post.slug}`}
                   data-active={active ? 'true' : undefined}
                   onMouseEnter={() => setActiveIndex(idx)}
                   onClick={() => onSelect(post)}
@@ -179,25 +179,9 @@ export default function SearchOverlay({
                       <p className="mt-0.5 line-clamp-1 text-xs text-muted-foreground">{post.excerpt}</p>
                     </div>
                     <time className="shrink-0 whitespace-nowrap pt-0.5 text-xs text-muted-foreground/70">
-                      {formatDisplayDate(post.date)}
+                      {post.period ?? formatDisplayDate(post.date)}
                     </time>
                   </div>
-                  {(post.tags?.length > 0 || typeof post.readMinutes === 'number') && (
-                    <div className="mt-1.5 flex flex-wrap items-center gap-1.5">
-                      {(post.tags ?? []).slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="inline-flex items-center gap-1 rounded-md border border-border/60 bg-card/60 px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground"
-                        >
-                          <span className="text-accent/70">#</span>
-                          {tag}
-                        </span>
-                      ))}
-                      {typeof post.readMinutes === 'number' && (
-                        <span className="text-[11px] text-muted-foreground/60">{post.readMinutes} min read</span>
-                      )}
-                    </div>
-                  )}
                 </a>
               )
             })

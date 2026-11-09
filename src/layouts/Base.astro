@@ -5,7 +5,9 @@ import Navigation from '../components/Navigation.astro';
 import { info } from '../lib/info.ts';
 
 interface BaseProps { title?: string; description?: string; ogImage?: string }
-const { title = info.site.title, description = info.site.description, ogImage } = Astro.props as BaseProps;
+const { title: pageTitle, description = info.site.description, ogImage } = Astro.props as BaseProps;
+// Every tab reads "<Page> · <Your name>"; the home page is just your name.
+const title = pageTitle ? `${pageTitle} · ${info.name}` : info.name;
 const siteName = info.site.name;
 const canonical = info.site.url;
 const siteUrl = info.site.url;
@@ -63,7 +65,7 @@ const resolvedOgImage = ogImage ?? (info.site.ogImage || undefined);
         "url": siteUrl,
         "potentialAction": {
           "@type": "SearchAction",
-          "target": `${siteUrl}/archives?q={search_term_string}`,
+          "target": `${siteUrl}/projects?q={search_term_string}`,
           "query-input": "required name=search_term_string"
         }
       })} />

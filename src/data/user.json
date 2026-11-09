@@ -1,138 +1,194 @@
 {
-    "name": "John Doe",
-    "role": "Software Engineer",
+    "name": "Pandu Raditya Rohman",
+    "role": "Robotics & Mechatronics Engineering Student",
     "home": {
-        "bio": "Generalist software engineer focused on building reliable, maintainable systems — equally comfortable across the frontend, backend, and infrastructure layers.",
-        "note": "Thanks for visiting! This is a demo site with placeholder content."
+        "bio": "Mechatronics and Robotics Engineering student at Monash University working on ROS 2 robotics software and applied machine learning: real-time navigation on physical robots (Nav2 tuning, human tracking, system integration), and AI/ML pipelines for perception and medical imaging."
     },
     "site": {
-        "name": "example.com",
-        "url": "https://example.com",
-        "title": "John Doe - Software Engineer",
-        "description": "Software engineer specializing in web applications, APIs, and cloud infrastructure",
-        "locale": "en_US",
+        "name": "Pandu Raditya Rohman",
+        "url": "https://CHANGE-ME.vercel.app",
+        "title": "Pandu Raditya Rohman - Robotics & Mechatronics Engineering",
+        "description": "Robotics software and applied machine learning projects by Pandu Raditya Rohman, Mechatronics and Robotics Engineering student at Monash University.",
+        "locale": "en_AU",
         "ogImage": ""
     },
     "contacts": [
         {
             "label": "email",
-            "text": "john.doe@example.com",
-            "href": "mailto:john.doe@example.com"
+            "text": "raditya.rohman2004@gmail.com",
+            "href": "mailto:raditya.rohman2004@gmail.com"
         },
         {
             "label": "github",
-            "text": "@johndoe",
-            "href": "https://github.com/johndoe",
+            "text": "@Pndu30",
+            "href": "https://github.com/Pndu30",
             "target": "_blank",
             "rel": "noopener noreferrer"
         },
         {
-            "label": "twitter",
-            "text": "@johndoe",
-            "href": "https://x.com/johndoe",
-            "target": "_blank",
-            "rel": "noopener noreferrer"
-        },
-        {
-            "label": "discord",
-            "text": "@johndoe",
-            "href": "https://discord.com/users/000000000000000000",
+            "label": "linkedin",
+            "text": "pandu-raditya-rohman",
+            "href": "https://www.linkedin.com/in/pandu-raditya-rohman/",
             "target": "_blank",
             "rel": "noopener noreferrer"
         }
     ],
     "resume": {
-        "name": "John Doe",
-        "role": "Software Engineer",
-        "bio": "Software engineer with a broad background across web applications, APIs, databases, and cloud infrastructure. Focused on clean architecture, automation, and shipping reliable software.",
+        "name": "Pandu Raditya Rohman",
+        "role": "Robotics & Mechatronics Engineering Student",
+        "bio": "Mechatronics and Robotics Engineering student at Monash University with experience in ROS2-based robotics software development and applied machine learning. Proven work in real-time navigation systems (Nav2 tuning, human tracking, system integration) on physical robots, alongside development of AI/ML pipelines for perception and medical imaging.",
         "downloads": {
-            "cv": {
-                "label": "download cv",
-                "text": "cv.pdf",
-                "href": "/cv.pdf",
-                "filename": "john-doe-cv.pdf"
-            },
-            "pgp": {
-                "label": "download pgp",
-                "text": "publickey.asc",
-                "href": "/pgp/publickey.asc",
-                "filename": "publickey.asc"
+            "resume": {
+                "label": "download resume",
+                "text": "resume.pdf",
+                "href": "/resume.pdf",
+                "filename": "pandu-raditya-rohman-resume.pdf"
             }
         },
-        "pgpFingerprint": "AAAA AAAA AAAA AAAA AAAA AAAA AAAA",
         "experience": [
             {
-                "role": "Senior Software Engineer",
-                "company": "Example Company",
-                "period": "2023 — Present",
+                "role": "Project Engineer",
+                "company": "Monash Automation (MA)",
+                "location": "Melbourne, Australia",
+                "period": "May 2025 — Present",
                 "description": [
-                    "Led feature development for a large-scale web application, improving reliability and performance.",
-                    "Designed and maintained internal tooling, CI pipelines, and automated testing strategies.",
-                    "Mentored junior engineers and drove code review and architecture discussions."
+                    "Assisted in simulating robotic systems using PyBullet for testing and validation.",
+                    "Developed robot control workflows using ROS 2 and GPT APIs to command the Unitree Go1 quadruped robot.",
+                    "Currently assisting in the development of the lab's Digital Twin with the use of LiDAR and depth camera sensors and a high level ROS2 control architecture of a bipedal robot."
                 ]
             },
             {
-                "role": "Software Engineer",
-                "company": "Example Company",
-                "period": "2021 — 2023",
+                "role": "Robotics Software Engineer Intern",
+                "company": "NICE Centre for Agricultural Robotics and Technology (NICE CART)",
+                "location": "Wuxi, Jiangsu, China",
+                "period": "Nov 2025 — Feb 2026",
                 "description": [
-                    "Built and shipped REST and GraphQL APIs backed by relational and NoSQL databases.",
-                    "Deployed and operated services on cloud infrastructure with monitoring and alerting.",
-                    "Collaborated across teams to plan and deliver multi-quarter product initiatives."
+                    "Designed and developed a ROS2-based person-following navigation system, integrating perception, tracking, and motion planning for real-time operation.",
+                    "Integrated human tracking outputs into the navigation stack, enabling motion prediction, re-acquisition after occlusions, and smooth trajectory following.",
+                    "Implemented, integrated, and tuned global and local planners such as Smac2D and Timed Elastic Band (TEB) within ROS2 Nav2 to safely follow a moving human target in dynamic environments.",
+                    "Contributed to the ROS1 MoveBase to ROS2 Nav2 migration and assisted with on-robot field testing in real-world environments."
+                ]
+            },
+            {
+                "role": "Project Lead",
+                "company": "Monash Analysis of Images in Medicine (Monash AIM)",
+                "location": "Melbourne, Australia",
+                "period": "Aug 2025 — Feb 2026",
+                "description": [
+                    "Managed AI-driven medical imaging projects focused on Tuberculosis detection and lesion segmentation.",
+                    "Applied EfficientNet, ConvNet, U-Net, U-Net++, and Swin-UNet for classification, segmentation, and model deployment."
+                ]
+            },
+            {
+                "role": "AI Engineer",
+                "company": "Monash Analysis of Images in Medicine (Monash AIM)",
+                "location": "Melbourne, Australia",
+                "period": "Sep 2024 — Aug 2025",
+                "description": [
+                    "Researched, implemented, and benchmarked medical image segmentation models (UNet, MSEG-HarDNet) for brain stroke segmentation.",
+                    "Researched and prepared datasets and dataloaders for Tuberculosis detection and segmentation task."
+                ]
+            }
+        ],
+        "volunteering": [
+            {
+                "role": "Information Technology Department Member",
+                "company": "PPIA",
+                "location": "Australia",
+                "period": "Feb 2024 — Jan 2025",
+                "description": [
+                    "Supported and maintained the association's existing web platform, and contributed to designing and developing a new website."
+                ]
+            },
+            {
+                "role": "Chemistry Olympiad Team Member",
+                "company": "OLYMPUS (Olympiad Students of Kesatuan Bangsa)",
+                "period": "Sep 2019 — Jul 2021",
+                "description": [
+                    "Trained for and competed in multiple chemistry competitions as part of the school's chemistry olympiad team."
                 ]
             }
         ],
         "skills": [
             {
+                "category": "Robotics",
+                "items": [
+                    "ROS2",
+                    "Nav2",
+                    "tf2",
+                    "RViz",
+                    "Gazebo",
+                    "PyBullet"
+                ]
+            },
+            {
+                "category": "AI/ML",
+                "items": [
+                    "PyTorch",
+                    "OpenCV",
+                    "Scikit-Learn",
+                    "LiDAR",
+                    "RGB-D"
+                ]
+            },
+            {
                 "category": "Languages",
                 "items": [
-                    "TypeScript",
-                    "JavaScript",
+                    "C/C++",
                     "Python",
-                    "Go",
-                    "SQL",
-                    "Bash"
+                    "MATLAB",
+                    "Verilog"
                 ]
             },
             {
-                "category": "Frameworks & Libraries",
+                "category": "Tools",
                 "items": [
-                    "React",
-                    "Node.js",
-                    "Express",
-                    "Astro",
-                    "Prisma",
-                    "Tailwind CSS"
+                    "Git",
+                    "GitHub",
+                    "Linux",
+                    "SOLIDWORKS",
+                    "Prusa Slicer",
+                    "LTSpice",
+                    "VSCode",
+                    "WSL2",
+                    "Foxglove"
                 ]
+            }
+        ],
+        "languages": [
+            {
+                "language": "English",
+                "proficiency": "Full professional"
             },
             {
-                "category": "Infrastructure",
-                "items": [
-                    "Docker",
-                    "Kubernetes",
-                    "AWS",
-                    "GCP",
-                    "Terraform",
-                    "CI/CD"
-                ]
-            },
-            {
-                "category": "Practices",
-                "items": [
-                    "Testing",
-                    "Code Review",
-                    "Agile",
-                    "Observability",
-                    "Security Awareness"
-                ]
+                "language": "Indonesian",
+                "proficiency": "Native"
             }
         ],
         "education": [
             {
-                "degree": "B.S. in Computer Science",
-                "institution": "Example University",
-                "period": "2017 — 2021"
+                "degree": "Bachelor of Engineering (Honours), Robotics and Mechatronics Engineering",
+                "institution": "Monash University, Melbourne, VIC",
+                "period": "Jul 2023 — Jul 2027"
+            },
+            {
+                "degree": "High School Diploma",
+                "institution": "SMA Kesatuan Bangsa, Yogyakarta",
+                "period": "Jul 2019 — Jul 2022"
             }
+        ],
+        "honours": [
+            {
+                "title": "Faculty of Engineering Dean's Honour List",
+                "issuer": "Monash University",
+                "date": "2024"
+            }
+        ],
+        "certifications": [
+            "Certified SOLIDWORKS Associate (CSWA) — Dassault Systèmes, May 2025",
+            "Machine Learning Specialization — Stanford University & DeepLearning.AI, Dec 2023",
+            "Google Advanced Data Analytics Professional Certificate, Dec 2023",
+            "Google Data Analytics Certificate"
         ]
     }
 }

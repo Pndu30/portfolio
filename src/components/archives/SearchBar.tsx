@@ -13,7 +13,7 @@ export type SearchBarProps = {
 export default function SearchBar({
   value = '',
   onChange,
-  placeholder = 'Search articles...',
+  placeholder = 'Search projects...',
   className = '',
   posts = []
 }: SearchBarProps) {
@@ -40,7 +40,7 @@ export default function SearchBar({
   const handleSelect = (post: Post) => {
     setOpen(false)
     onChange?.(post.title)
-    window.location.assign(`/archives/${post.slug}`)
+    window.location.assign(`/projects/${post.slug}`)
   }
 
   return (

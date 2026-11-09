@@ -30,6 +30,18 @@ export interface EducationItem {
     details?: string[];
 }
 
+export interface LanguageItem {
+    language: string;
+    proficiency?: string;
+}
+
+export interface HonourItem {
+    title: string;
+    issuer?: string;
+    date?: string;
+    description?: string;
+}
+
 export interface SkillCategory {
     category: string;
     items: string[];
@@ -40,11 +52,14 @@ export interface ResumeData {
     role: string;
     bio: string;
     downloads: {
-        cv: DownloadItem;
-        pgp: DownloadItem;
+        resume: DownloadItem;
+        pgp?: DownloadItem; // omit to hide the PGP link/button
     };
     pgpFingerprint?: string;
     experience: ExperienceItem[];
+    volunteering?: ExperienceItem[];
+    languages?: LanguageItem[];
+    honours?: HonourItem[];
     skills: SkillCategory[];
     education?: EducationItem[];
     certifications?: string[];

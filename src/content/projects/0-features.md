@@ -6,6 +6,7 @@ tags:
   - markdown
   - formatting
   - examples
+draft: true    # syntax reference only, not published
 ---
 
 This document shows every markdown feature available on the site.

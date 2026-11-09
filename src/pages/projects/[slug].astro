@@ -3,8 +3,8 @@ import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import { TOC } from 'astro-toc';
-import { ChevronRight, ArrowLeft, ArrowRight, Calendar, Clock } from '@lucide/astro';
-import { slugifyTag } from '../../lib/tags';
+import { ChevronRight, Calendar, FolderGit2 } from '@lucide/astro';
+import ProjectMedia from '../../components/ProjectMedia.astro';
 import { getArchivePosts } from '../../lib/archive_data';
 import '../../styles/archives.css';
 import 'katex/dist/katex.min.css';
@@ -18,7 +18,7 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { archive } = Astro.props as { archive: import('astro:content').CollectionEntry<'archives'> };
-const { title, description, date, tags, ogImage } = archive.data as any;
+const { title, description, date, period, repo, media, tags, ogImage } = archive.data;
 
 const { Content, headings } = await render(archive);
 type H = { depth?: number; text?: string; title?: string; slug?: string };
@@ -36,7 +36,6 @@ const tocItems = safeHeadings
 
 const tagList: string[] = Array.isArray(tags) ? tags : [];
 const primaryTag = tagList.length > 0 ? tagList[0] : undefined;
-const displayTag = (t: string) => (t ? t.charAt(0).toUpperCase() + t.slice(1) : t);
 
 const formatDate = (date: Date) => {
   return date.toLocaleDateString('en-US', {
@@ -71,7 +70,7 @@ const pageUrl = Astro.url?.href ?? undefined;
               </li>
               <li class="flex items-center gap-1">
                 <ChevronRight size={12} class="opacity-60" aria-hidden="true" />
-                <a href="/archives" class="transition-colors hover:text-foreground">Archive</a>
+                <a href="/projects" class="transition-colors hover:text-foreground">Projects</a>
               </li>
               <li class="flex items-center gap-1">
                 <ChevronRight size={12} class="opacity-60" aria-hidden="true" />
@@ -88,26 +87,18 @@ const pageUrl = Astro.url?.href ?? undefined;
             <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-muted-foreground">
               <span class="flex items-center gap-1.5">
                 <Calendar size={13} aria-hidden="true" />
-                <time datetime={date instanceof Date ? date.toISOString().slice(0, 10) : String(date)}>{formatDate(date)}</time>
+                <time datetime={date.toISOString().slice(0, 10)}>{period ?? formatDate(date)}</time>
               </span>
-              <span class="flex items-center gap-1.5">
-                <Clock size={13} aria-hidden="true" />
-                <span id="read-mins">1 min read</span>
-              </span>
+              {repo && (
+                <a href={repo} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 transition-colors hover:text-accent">
+                  <FolderGit2 size={13} aria-hidden="true" />
+                  <span>Source</span>
+                </a>
+              )}
             </div>
-            {tagList.length > 0 && (
-              <div class="mt-4 flex flex-wrap gap-1.5">
-                {tagList.map((tag) => (
-                  <a
-                    href={`/tags/${slugifyTag(tag)}`}
-                    class="inline-flex items-center gap-1 rounded-md border border-border bg-card px-2 py-0.5 font-mono text-[0.6875rem] text-muted-foreground transition-colors hover:border-accent/50 hover:text-accent"
-                  >
-                    <span class="text-accent/70">#</span>{displayTag(tag)}
-                  </a>
-                ))}
-              </div>
-            )}
           </header>
+
+          <ProjectMedia items={media} title={title} />
 
           <article id="article-content" class="prose mt-8 max-w-none">
             <Content />

@@ -6,6 +6,7 @@ export type Post = {
   tags: string[]
   wordCount?: number
   readMinutes?: number
+  period?: string
 }
 
 export interface IndexedPost<T extends Post = Post> {

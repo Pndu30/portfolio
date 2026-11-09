@@ -1,8 +1,9 @@
 ---
+import siteInfo from '../data/user.json';
+
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/archives', label: 'Archive' },
-  { href: '/tags', label: 'Tags' },
+  { href: '/projects', label: 'Projects' },
   { href: '/resume', label: 'Resume' },
 ];
 const pathname = Astro.url.pathname;
@@ -15,10 +16,18 @@ function linkClass(href: string) {
   return `text-sm transition-colors ${active ? 'text-foreground font-medium' : 'text-muted-foreground hover:text-foreground'}`;
 }
 ---
-<nav class="sticky top-0 z-50">
+<!-- Solid, blurred bar with a border so page text never shows through it.
+     Hides when scrolling down, comes back on any scroll up. -->
+<nav
+  id="site-nav"
+  class="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md transition-transform duration-300 ease-out motion-reduce:transition-none"
+>
   <div class="container mx-auto px-6">
-    <div class="flex h-16 items-center justify-center">
-      <div class="flex items-center gap-6">
+    <div class="flex h-14 items-center justify-between gap-6">
+      <a href="/" class="truncate text-sm font-semibold tracking-tight text-foreground hover:text-accent transition-colors">
+        {siteInfo.name}
+      </a>
+      <div class="flex shrink-0 items-center gap-5 sm:gap-6">
         {links.map((l) => (
           <a href={l.href} class={linkClass(l.href)} aria-current={isActiveHref(l.href) ? 'page' : undefined}>{l.label}</a>
         ))}
@@ -26,3 +35,35 @@ function linkClass(href: string) {
     </div>
   </div>
 </nav>
+
+<script>
+  const nav = document.getElementById('site-nav');
+  if (nav) {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const SHOW_NEAR_TOP = 64; // always visible in the first 64px
+    const THRESHOLD = 6;      // ignore tiny jitters (trackpads)
+
+    const update = () => {
+      const y = window.scrollY;
+      const delta = y - lastY;
+      if (y < SHOW_NEAR_TOP || delta < -THRESHOLD) {
+        nav.style.transform = '';
+      } else if (delta > THRESHOLD && !nav.contains(document.activeElement)) {
+        nav.style.transform = 'translateY(-100%)';
+      }
+      if (Math.abs(delta) > THRESHOLD) lastY = y;
+      ticking = false;
+    };
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    }, { passive: true });
+
+    // Keyboard users tabbing into the nav always get it back.
+    nav.addEventListener('focusin', () => { nav.style.transform = ''; });
+  }
+</script>

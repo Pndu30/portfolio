@@ -1,22 +1,57 @@
 ---
 import Base from "../layouts/Base.astro";
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
 import siteInfo from "../data/user.json";
+
+// Profile photo: put src/assets/me.jpg (or .png/.webp/.avif) and it's picked
+// up automatically. To use a different filename or alt text, set
+// "photo": { "src": "other.jpg", "alt": "..." } in src/data/user.json.
+// Astro resizes and converts it at build time.
+const photoCfg = (siteInfo as { photo?: { src: string; alt?: string } }).photo;
+const assets = import.meta.glob<{ default: ImageMetadata }>(
+    "../assets/*.{jpg,jpeg,png,webp,avif}",
+    { eager: true },
+);
+const defaultPhoto = Object.entries(assets).find(([path]) =>
+    /\/me\.(jpe?g|png|webp|avif)$/i.test(path),
+)?.[1].default;
+const photo = photoCfg ? assets[`../assets/${photoCfg.src}`]?.default : defaultPhoto;
+if (photoCfg && !photo) {
+    throw new Error(`Profile photo "${photoCfg.src}" not found in src/assets/ (jpg, jpeg, png, webp or avif).`);
+}
 ---
 
-<Base title={siteInfo.site.title}
+<Base
       description={siteInfo.site.description}>
 
     <section class="container mx-auto px-6 py-16 flex-grow flex flex-col justify-center">
         <div class="max-w-3xl mx-auto w-full">
-            <h1 class="mb-2 text-4xl md:text-5xl font-bold tracking-tight text-balance">{siteInfo.name}</h1>
-            <p class="mb-4 text-lg md:text-xl text-muted-foreground">{siteInfo.role}</p>
+            <div class="mb-6 flex flex-col gap-6 sm:flex-row sm:items-center">
+                {photo && (
+                    <Image
+                        src={photo}
+                        alt={photoCfg?.alt ?? siteInfo.name}
+                        width={256}
+                        height={256}
+                        loading="eager"
+                        class="size-28 shrink-0 rounded-full border border-border object-cover sm:size-32"
+                    />
+                )}
+                <div>
+                    <h1 class="mb-2 text-4xl md:text-5xl font-bold tracking-tight text-balance">{siteInfo.name}</h1>
+                    <p class="text-lg md:text-xl text-muted-foreground">{siteInfo.role}</p>
+                </div>
+            </div>
 
-            <p class="mb-4 text-base md:text-lg text-foreground/85 leading-relaxed text-pretty">
+            <p class="mb-10 text-base md:text-lg text-foreground/85 leading-relaxed text-pretty">
                 {siteInfo.home.bio}
             </p>
-            <p class="mb-10 text-base md:text-lg text-foreground/85 leading-relaxed text-pretty">
-                {siteInfo.home.note}
-            </p>
+            {"note" in siteInfo.home && siteInfo.home.note && (
+                <p class="-mt-6 mb-10 text-base md:text-lg text-foreground/85 leading-relaxed text-pretty">
+                    {siteInfo.home.note}
+                </p>
+            )}
 
             <div class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
                 {siteInfo.contacts.map((contact) => (

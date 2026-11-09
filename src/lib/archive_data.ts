@@ -51,6 +51,7 @@ export function formatArchivePost(entry: ArchiveEntry): Post {
     tags: entry.data.tags ?? [],
     wordCount,
     readMinutes,
+    period: entry.data.period,
   };
 }
 
