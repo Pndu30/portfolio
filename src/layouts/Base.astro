@@ -9,7 +9,8 @@ const { title: pageTitle, description = info.site.description, ogImage } = Astro
 // Every tab reads "<Page> · <Your name>"; the home page is just your name.
 const title = pageTitle ? `${pageTitle} · ${info.name}` : info.name;
 const siteName = info.site.name;
-const canonical = info.site.url;
+// Each page's own URL (not the home page), so search engines index every page.
+const canonical = info.site.url ? new URL(Astro.url.pathname, info.site.url).href : undefined;
 const siteUrl = info.site.url;
 const siteLocale = info.site.locale ?? 'en_US';
 const resolvedOgImage = ogImage ?? (info.site.ogImage || undefined);
