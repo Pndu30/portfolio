@@ -2,7 +2,7 @@
     "name": "Pandu Raditya Rohman",
     "role": "Robotics & Mechatronics Engineering Student",
     "home": {
-        "bio": "Mechatronics and Robotics Engineering student at Monash University working on ROS 2 robotics software and applied machine learning: real-time navigation on physical robots (Nav2 tuning, human tracking, system integration), and AI/ML pipelines for perception and medical imaging."
+        "bio": "Mechatronics and Robotics Engineering student at Monash University working on ROS2 robotics software and applied machine learning: real-time navigation on physical robots (Nav2 tuning, human tracking, system integration), and AI/ML pipelines for perception and medical imaging."
     },
     "site": {
         "name": "panduraditya.dev",
@@ -53,7 +53,7 @@
                 "period": "May 2025 — Present",
                 "description": [
                     "Assisted in simulating robotic systems using PyBullet for testing and validation.",
-                    "Developed robot control workflows using ROS 2 and GPT APIs to command the Unitree Go1 quadruped robot.",
+                    "Developed robot control workflows using ROS2 and GPT APIs to command the Unitree Go1 quadruped robot.",
                     "Currently assisting in the development of the lab's Digital Twin with the use of LiDAR and depth camera sensors and a high level ROS2 control architecture of a bipedal robot."
                 ]
             },
@@ -115,10 +115,9 @@
                 "items": [
                     "ROS2",
                     "Nav2",
-                    "tf2",
-                    "RViz",
-                    "Gazebo",
-                    "PyBullet"
+                    "PyBullet",
+                    "LiDAR",
+                    "RGB-D Cameras"
                 ]
             },
             {
@@ -127,8 +126,8 @@
                     "PyTorch",
                     "OpenCV",
                     "Scikit-Learn",
-                    "LiDAR",
-                    "RGB-D"
+                    "Numpy",
+                    "Pandas"
                 ]
             },
             {
@@ -151,7 +150,8 @@
                     "LTSpice",
                     "VSCode",
                     "WSL2",
-                    "Foxglove"
+                    "Foxglove",
+                    "Docker"
                 ]
             }
         ],

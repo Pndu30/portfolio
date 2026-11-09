@@ -57,14 +57,13 @@ The plan grows in stages, each one tied to what it should teach:
 3. **Memory and backups.** More RAM, Proxmox Backup Server and single sign-on
    with Authentik.
 4. **Platform engineering.** Two more nodes for a three-node Proxmox cluster;
-   Kubernetes rebuilt with kubeadm and deployed through Argo CD (GitOps);
+   Kubernetes rebuilt with k8s and deployed through Argo CD (GitOps);
    distributed storage with Longhorn; short-lived secrets with OpenBao; image
    scanning and signing in CI.
-5. **Lab node, GPU and robotics.** A GPU worker for ML pipelines, ROS 2
+5. **Lab node, GPU and robotics.** A GPU worker for ML pipelines, ROS2
    simulation as a CI stage, and a small Raspberry Pi edge fleet.
-6. **Network and source of truth.** Full VLAN segmentation, self-hosted NetBird
-   for remote access, and NetBox as the source of truth for addresses and
-   devices.
+6. **Network.** Full VLAN segmentation and self-hosted NetBird
+   for remote access.
 7. **NAS and recovery.** A ZFS NAS, immutable off-site backups, and a written,
    drilled recovery runbook.
 8. **Smart home.** Home Assistant on a dedicated production node with automatic
@@ -73,12 +72,12 @@ The plan grows in stages, each one tied to what it should teach:
    canary decoys and supply-chain security in CI.
 10. **AI server.** Locally hosted LLM agents that can only act through a policy
     gateway with approvals and an audit log.
-11. **Fabrication and robotics.** 3D printers, a mobile robot and a robot arm,
-    tied into the lab's network and simulation.
-12. **FPGA lab.** A hardware order-book pipeline on a DE10-Nano, run on paper
-    data.
+<!--11. **Fabrication and robotics.** 3D printers, a mobile robot and a robot arm,
+    tied into the lab's network and simulation.-->
+<!--12. **FPGA lab.** A hardware order-book pipeline on a DE10-Nano, run on paper
+    data.-->
 
 ## Stack (current and planned)
 
-Proxmox · OPNsense · OpenTofu · Ansible · Kubernetes (k3s → kubeadm) · Cilium ·
+Proxmox · OPNsense · OpenTofu · Ansible · Kubernetes (k3s → k8s) · Cilium ·
 Argo CD · Prometheus & Grafana

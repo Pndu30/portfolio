@@ -1,6 +1,6 @@
 ---
-title: ROS 2 Upskilling Materials
-description: A starter kit of annotated ROS 2 examples in C++ and Python, written to onboard new Monash Automation members.
+title: ROS2 Upskilling Materials
+description: A starter kit of annotated ROS2 examples in C++ and Python, written to onboard new Monash Automation members.
 date: 2025-08-30
 period: Aug 2025
 repo: https://github.com/Pndu30/ROS2_Materials
@@ -14,7 +14,7 @@ tags:
 ## Overview
 
 Upskilling material for new Monash Automation members: a small set of minimal,
-heavily commented examples covering the core ROS 2 concepts, each written in both
+heavily commented examples covering the core ROS2 concepts, each written in both
 **C++ (rclcpp)** and **Python (rclpy)**, so the two APIs can be compared side by side.
 
 ## What's covered
@@ -37,4 +37,4 @@ work as reference material as well as runnable examples.
 
 ## Stack
 
-ROS 2 · C++ (rclcpp) · Python (rclpy) · turtlesim
+ROS2 · C++ (rclcpp) · Python (rclpy) · turtlesim

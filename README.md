@@ -32,3 +32,7 @@ git switch -c update-projects   # optional: preview first
 git add -A && git commit -m "..."
 git push                         # main → live in about a minute
 ```
+
+## Credits
+
+Based on the [wqqz.dev](https://github.com/imwqqz/wqqz.dev) template by [imwqqz](https://github.com/imwqqz) (MIT licensed). Thanks for the template!

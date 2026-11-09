@@ -1,6 +1,6 @@
 ---
 title: x72 Processor in Verilog
-description: A 16-bit, non-Turing-complete processor designed from scratch in Verilog for Monash ECE2072 (Digital Systems), simulated in ModelSim and synthesised for an FPGA.
+description: A 16-bit, non-Turing-complete processor designed from scratch in Verilog for a unit, simulated in ModelSim and synthesised for an FPGA.
 date: 2024-10-11
 period: Sep 2024 – Oct 2024
 tags:
@@ -13,7 +13,7 @@ tags:
 
 ## Overview
 
-A team project for the Monash unit **ECE2072: Digital Systems**: designing and
+A team project for a unit: designing and
 implementing a small processor, the **x72**, in Verilog, from the individual
 building blocks up to a complete CPU targeting a DE10-Lite FPGA board. It is
 deliberately **non-Turing complete**: there are no branch instructions and no

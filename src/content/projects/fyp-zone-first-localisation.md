@@ -1,6 +1,6 @@
 ---
 title: Zone-First Container Localisation for Space Station Logistics
-description: Final year project. A ROS 2 system that tracks cargo containers on a space station by fusing passive RFID, UWB ranging and a depth camera, and checks every position against an inventory record.
+description: Final year project. A ROS2 system that tracks cargo containers on a space station by fusing passive RFID, UWB ranging and a depth camera, and checks every position against an inventory record.
 date: 2026-06-01
 period: Final Year Project · 2026
 tags:
@@ -62,7 +62,7 @@ support its estimate**: *detected* (zone only), *coarse* (UWB), *refined*
 (UWB + camera) or *coasting*. That makes the reported position honest about
 how far it can be trusted.
 
-Everything runs under **ROS 2** on a **Jetson Xavier NX**, with the camera and
+Everything runs under **ROS2** on a **Jetson Xavier NX**, with the camera and
 reader carried on an XLeRobot mast.
 
 ## Results
@@ -83,5 +83,5 @@ reader carried on an XLeRobot mast.
 
 ## Stack
 
-ROS 2 · Python · UHF RFID (SparkFun M7E) · UWB (DW3000) · Intel RealSense D455 ·
+ROS2 · Python · UHF RFID (SparkFun M7E) · UWB (DW3000) · Intel RealSense D455 ·
 YOLOE · EKF · SQLite · Jetson Xavier NX

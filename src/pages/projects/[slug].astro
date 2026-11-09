@@ -3,7 +3,8 @@ import Base from '../../layouts/Base.astro';
 import { getCollection, render } from 'astro:content';
 import type { GetStaticPaths } from 'astro';
 import { TOC } from 'astro-toc';
-import { ChevronRight, Calendar, FolderGit2 } from '@lucide/astro';
+import { ChevronRight, Calendar } from '@lucide/astro';
+import GithubIcon from '../../components/GithubIcon.astro';
 import ProjectMedia from '../../components/ProjectMedia.astro';
 import { getArchivePosts } from '../../lib/archive_data';
 import '../../styles/archives.css';
@@ -89,13 +90,18 @@ const pageUrl = Astro.url?.href ?? undefined;
                 <Calendar size={13} aria-hidden="true" />
                 <time datetime={date.toISOString().slice(0, 10)}>{period ?? formatDate(date)}</time>
               </span>
-              {repo && (
-                <a href={repo} target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 transition-colors hover:text-accent">
-                  <FolderGit2 size={13} aria-hidden="true" />
-                  <span>Source</span>
-                </a>
-              )}
             </div>
+            {repo && (
+              <a
+                href={repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-5 inline-flex items-center gap-2 rounded-md border border-border bg-card px-3.5 py-2 text-sm font-medium text-foreground transition-colors hover:border-accent/60 hover:text-accent"
+              >
+                <GithubIcon size={18} />
+                <span>View on GitHub</span>
+              </a>
+            )}
           </header>
 
           <ProjectMedia items={media} title={title} />

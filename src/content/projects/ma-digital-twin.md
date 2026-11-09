@@ -1,6 +1,6 @@
 ---
 title: Monash Automation Lab Digital Twin
-description: A ROS 2 digital twin of the Monash Automation lab, fusing ceiling-mounted camera and LiDAR detections into a live Gazebo mirror of the room.
+description: A ROS2 digital twin of the Monash Automation lab, fusing ceiling-mounted camera and LiDAR detections into a live Gazebo mirror of the room.
 date: 2026-11-09
 period: Ongoing
 tags:
@@ -13,10 +13,10 @@ tags:
 media:
   - type: video
     drive: https://drive.google.com/file/d/1WPfQcPVMwXrB_cvgI_JXuJk3UFKL5DzH/view?usp=sharing
-    caption: Video courtesy of Monash Automation
+    caption: Tracking and generation of map. Video courtesy of Monash Automation
   - type: video
     drive: https://drive.google.com/file/d/1LryTJmg3qxPA8oUykaT-gblvtSp5SEul/view?usp=sharing
-    caption: Video courtesy of Monash Automation
+    caption: Path planning of the simulated robot. Video courtesy of Monash Automation
 ---
 
 ## Overview
@@ -30,7 +30,7 @@ perception side: knowing what is in the room and where.
 ## How it works
 
 A ceiling-mounted **Intel RealSense D455** depth camera and a **Livox MID-360**
-LiDAR watch the lab. Their streams feed a ROS 2 (Jazzy) pipeline that ends with
+LiDAR watch the lab. Their streams feed a ROS2 (Jazzy) pipeline that ends with
 a Gazebo scene mirroring the room:
 
 1. **Detect.** An open-vocabulary **YOLOE** segmentation model finds objects in
@@ -48,10 +48,10 @@ a Gazebo scene mirroring the room:
 5. **Mirror.** A Gazebo node spawns and removes meshes to match the live object
    list, so the twin reflects the room as it changes.
 
-The lab state can also be queried over ROS 2 services: camera health, every
+The lab state can also be queried over ROS2 services: camera health, every
 current detection as JSON, or a single named object.
 
-## Engineering notes
+<!--## Engineering notes
 
 - **Multi-host.** Sensors aren't on the processing machine. The RealSense
   runs on a Jetson and everything talks over DDS, so QoS settings matter:
@@ -63,15 +63,15 @@ current detection as JSON, or a single named object.
 - **Scales by parameter.** Adding a second camera or LiDAR is a launch argument,
   not a code change.
 - **CI.** Pushes and pull requests to `main` are built, tested and linted against
-  ROS 2 Jazzy in GitHub Actions.
+  ROS2 Jazzy in GitHub Actions.-->
 
 ## What's next
 
 Building on the perception layer: robot control and path planning from inside
-the twin, and a high-level ROS 2 control architecture for the lab's bipedal
+the twin, and a high-level ROS2 control architecture for the lab's bipedal
 robot.
 
 ## Stack
 
-ROS 2 Jazzy · Python · YOLOE (Ultralytics) · DeepSORT · Intel RealSense D455 ·
-Livox MID-360 · Gazebo · Docker · GitHub Actions
+ROS2 Jazzy · Python · YOLOE (Ultralytics) · DeepSORT · Intel RealSense D455 ·
+Livox MID-360 · Gazebo · Docker

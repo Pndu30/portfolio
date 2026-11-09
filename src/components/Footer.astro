@@ -1,0 +1,19 @@
+---
+import { info } from '../lib/info.ts';
+const year = new Date().getFullYear();
+---
+<footer class="border-t border-border/70">
+  <div class="container mx-auto flex flex-col gap-1 px-6 py-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+    <p>© {year} {info.name}</p>
+    <p>
+      Built with Astro, based on{' '}
+      <a
+        href="https://github.com/imwqqz/wqqz.dev"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="underline underline-offset-2 decoration-accent/50 transition-colors hover:text-accent hover:decoration-accent"
+      >wqqz.dev</a>{' '}
+      by imwqqz. Thanks for the template!
+    </p>
+  </div>
+</footer>

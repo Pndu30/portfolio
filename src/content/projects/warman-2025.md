@@ -59,15 +59,8 @@ lifted it reliably without needing another pin.
 
 In **heat 2** the robot completed the full course in **59 s** for a score of
 **210.5**, with full marks for disturbance, movement, landing, deposit and
-end zone. It was one of the first teams to complete the mission. On
-competition day, though, the mecanum wheels lost traction on the seesaw and
-the run failed. Extra rear weight and glued-on rubber tread had fixed this in
-testing, but not reliably enough.
-
-**Main lesson:** the team switched to the final design late, around week
-seven of ten, which left too little time to make it reliable. Committing
-earlier to the simpler concept would have bought that time.
+end zone. It was one of the first teams to complete the mission. 
 
 ## Stack
 
-Arduino (C++) · DC motors & servos · LiPo power · SOLIDWORKS · laser cutting
+Arduino (C++) · DC motors & servos ·  SOLIDWORKS · 3D Printing
