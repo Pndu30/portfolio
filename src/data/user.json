@@ -136,7 +136,8 @@
                     "C/C++",
                     "Python",
                     "MATLAB",
-                    "Verilog"
+                    "Verilog",
+                    "Bash Script"
                 ]
             },
             {

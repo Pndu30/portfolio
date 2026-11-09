@@ -1,6 +1,6 @@
 ---
 title: Robodog Natural-Language Control
-description: A ROS2 interface that turns plain-English instructions into motion commands for a Unitree Go1 quadruped.
+description: A ROS 2 interface that turns plain-English instructions into motion commands for a Unitree Go1 quadruped.
 date: 2025-11-01
 period: May 2025 – Nov 2025
 tags:
@@ -8,7 +8,7 @@ tags:
   - c++
   - unitree-go1
   - gpt-api
-# repo: https://github.com/Pndu30/<repo-name>
+repo: https://github.com/Pndu30/Robodog_GPT_Control
 # media:
 #   - type: video
 #     drive: https://drive.google.com/file/d/<file-id>/view?usp=sharing
@@ -27,14 +27,14 @@ a sequence of motion commands the robot can execute comes out.
 
 ## How it works
 
-The system is a ROS2 interface sitting between a language model and the robot:
+The system is a ROS 2 interface sitting between a language model and the robot:
 
 - **Language → intent.** Natural-language input is sent to the GPT API, which
   interprets it into structured motion intents.
-- **Intent → motion.** A ROS2 layer maps those intents onto motion commands
+- **Intent → motion.** A ROS 2 layer maps those intents onto motion commands
   for the Go1 through the Unitree Go1 SDK.
 - **Execution.** The resulting commands are sent to the Go1 for execution.
 
 ## Stack
 
-ROS2 · C++ · Unitree Go1 SDK · GPT API
+ROS 2 · C++ · Unitree Go1 SDK · GPT API

@@ -8,7 +8,7 @@ tags:
   - pytorch
   - medical-imaging
   - segmentation
-# repo: https://github.com/Pndu30/<repo-name>
+repo: https://github.com/MonashAIM/harmonic-dense-network
 # media:
 #   - type: image
 #     drive: https://drive.google.com/file/d/<file-id>/view?usp=sharing
