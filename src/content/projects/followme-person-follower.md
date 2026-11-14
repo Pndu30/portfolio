@@ -8,16 +8,16 @@ tags:
   - nav2
   - human-tracking
   - motion-planning
-media:
-  - type: video
-    drive: https://drive.google.com/file/d/1x5DWKDDbVJtGBhNPoNga_HmoT-sT-aj-/view?usp=sharing
-    caption: Outdoor testing to test for consistency
-  - type: video
-    drive: https://drive.google.com/file/d/19OJp9Z98K-Xo6g-QaXPzLA5auLMT89-E/view?usp=sharing
-    caption: Indoor testing to make sure robot doesn't bump in lanes
-  - type: video
-    drive: https://drive.google.com/file/d/1wVvIj4nfGCSeUJssoc83MH9oI9BH26_T/view?usp=sharing
-    caption: Extensive lane following testing
+# media:
+#   - type: video
+#     drive: https://drive.google.com/file/d/1x5DWKDDbVJtGBhNPoNga_HmoT-sT-aj-/view?usp=sharing
+#     caption: Outdoor testing to test for consistency
+#   - type: video
+#     drive: https://drive.google.com/file/d/19OJp9Z98K-Xo6g-QaXPzLA5auLMT89-E/view?usp=sharing
+#     caption: Indoor testing to make sure robot doesn't bump in lanes
+#   - type: video
+#     drive: https://drive.google.com/file/d/1wVvIj4nfGCSeUJssoc83MH9oI9BH26_T/view?usp=sharing
+#     caption: Extensive lane following testing
 ---
 
 ## Overview
